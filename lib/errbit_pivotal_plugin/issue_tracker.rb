@@ -63,8 +63,7 @@ module ErrbitPivotalPlugin
       story = project.stories.create({
         :name => "[#{ problem.environment }][#{ problem.where }] #{problem.message.to_s.truncate(100)}",
         :story_type => 'bug',
-        :description => self.class.body_template.result(binding).unpack('C*').pack('U*'),
-        :requested_by => reported_by.name
+        :description => self.class.body_template.result(binding).unpack('C*').pack('U*')
       })
 
       if story.errors.present?
